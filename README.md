@@ -1,41 +1,39 @@
-# TERROIR — Specialty Coffee
+# ☕ TERROIR — Specialty Coffee
 
-Elegant, single-page specialty coffee site with editorial typography, a warm “paper + ink” palette, and a premium product/story layout.
+![Project Status](https://img.shields.io/badge/status-active-forestgreen)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Design](https://img.shields.io/badge/design-minimalist-brown)
 
-## Highlights
-- Responsive landing page (desktop + mobile nav)
-- Smooth in-page scrolling
-- Tailwind (CDN) with a custom coffee/cream/forest color system
-- Texture overlay + subtle image grain and motion
-- Lucide icons + Google Fonts (Cormorant Garamond, Source Serif 4)
+**TERROIR** is a premium landing page concept for a specialty coffee roastery. It focuses on the narrative of coffee—from origin to cup—utilizing rich typography, textural elements, and a smooth, immersive user experience.
 
-## Project Structure
-- `index.html` — Page layout + Tailwind theme config
-- `style.css` — Texture + animations + small custom styles
-- `script.js` — Mobile menu + smooth scrolling + icon init
+---
 
-## Run Locally
-This is a static site—no build step required.
+## 🎨 Features
 
-Option A (quick):
-- Open `index.html` in your browser
+* **Immersive UI/UX**: Features a custom "paper grain" noise overlay and sophisticated typography pairing (Cormorant Garamond & Source Serif 4).
+* **Responsive Design**: Fully responsive layout that adapts seamlessly from desktop to mobile devices.
+* **Smooth Interactions**:
+    * Custom fade-in scroll animations.
+    * Smooth scrolling navigation.
+    * Interactive hover states on product cards and articles.
+* **Thematic Sections**:
+    * **Origins**: Detailed breakdown of sourcing regions (Ethiopia, Colombia, Guatemala).
+    * **Process**: A visual step-by-step guide to the roasting journey.
+    * **Journal**: Editorial-style blog section.
+    * **Shop**: Clean product grid with hover effects.
 
-Option B (recommended):
-- Use VS Code “Live Server” (or any local static server) and open the served URL
+## 🛠️ Tech Stack
 
-## Customize
-- Colors / fonts: edit the `tailwind.config` block in `index.html`
-- Sections: update IDs (`#origins`, `#process`, `#journal`, `#subscribe`) to match your nav links
-- Images: placeholder images currently load from `picsum.photos`—swap to your own assets/URLs for production
+* **Core**: HTML5, CSS3, JavaScript (ES6+)
+* **Styling**: [Tailwind CSS](https://tailwindcss.com/) (via CDN for rapid prototyping)
+* **Icons**: [Lucide Icons](https://lucide.dev/)
+* **Fonts**: Google Fonts
 
-## Deployment
-Any static host works (GitHub Pages, Netlify, Vercel, Cloudflare Pages):
-- Upload `index.html`, `style.css`, and `script.js`
+## 📂 Project Structure
 
-## Credits
-- Tailwind CSS (CDN)
-- Lucide Icons
-- Google Fonts
-
-## Notes
-- This repo does not currently include a license file. Add one if you plan to publish or accept contributions.
+```text
+/
+├── index.html          # Main structure and Tailwind config
+├── style.css           # Custom animations, scrollbars, and overlays
+├── script.js           # Mobile menu, scroll observers, and interactions
+└── README.md           # Project documentation
