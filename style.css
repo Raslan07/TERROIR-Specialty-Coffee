@@ -1,0 +1,84 @@
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3d2314 #faf7f2;
+}
+
+::selection {
+  background-color: rgba(27, 67, 50, 0.2);
+  color: #1a0f0a;
+}
+
+.texture-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+}
+
+.grain-img {
+  filter: sepia(10%) saturate(90%);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slowZoom {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+
+.animate-slow-zoom {
+  animation: slowZoom 20s ease-in-out infinite;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.handwritten {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.divider-line {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #3d2314, transparent);
+}
+
+.process-line {
+  background: linear-gradient(to bottom, #3d2314, #6b4423, #3d2314);
+}

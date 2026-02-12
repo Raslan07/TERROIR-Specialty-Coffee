@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERROIR — Specialty Coffee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coffee: {
+                            900: '#1a0f0a',
+                            800: '#2c1810',
+                            700: '#3d2314',
+                            600: '#5c3420',
+                            500: '#6b4423',
+                            400: '#8b5a3c',
+                        },
+                        cream: {
+                            50: '#fdfbf7',
+                            100: '#faf7f2',
+                            200: '#f5ede4',
+                            300: '#e8ddd0',
+                        },
+                        forest: {
+                            700: '#1b4332',
+                            800: '#15352a',
+                        }
+                    },
+                    fontFamily: {
+                        'display': ['Cormorant Garamond', 'serif'],
+                        'body': ['Source Serif 4', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="bg-cream-100 text-coffee-800 font-body antialiased relative">
+
+    <!-- Paper Texture Overlay -->
+    <div class="fixed inset-0 texture-overlay pointer-events-none z-50"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-40 bg-cream-100/95 backdrop-blur-sm border-b border-coffee-800/10">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <a href="#" class="font-display text-2xl lg:text-3xl font-medium tracking-wide text-coffee-800">
+                    TERROIR
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="#origins"
+                        class="text-sm tracking-wide text-coffee-600 hover:text-coffee-800 transition-colors duration-300">Origins</a>
+                    <a href="#process"
+                        class="text-sm tracking-wide text-coffee-600 hover:text-coffee-800 transition-colors duration-300">Process</a>
+                    <a href="#journal"
+                        class="text-sm tracking-wide text-coffee-600 hover:text-coffee-800 transition-colors duration-300">Journal</a>
+                    <a href="#subscribe"
+                        class="text-sm tracking-wide text-coffee-600 hover:text-coffee-800 transition-colors duration-300">Subscribe</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="w-5 h-5 text-coffee-800"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-cream-50 border-t border-coffee-800/10">
+            <div class="px-6 py-6 space-y-4">
+                <a href="#origins" class="block text-lg font-display text-coffee-700">Origins</a>
+                <a href="#process" class="block text-lg font-display text-coffee-700">Process</a>
+                <a href="#journal" class="block text-lg font-display text-coffee-700">Journal</a>
+                <a href="#subscribe" class="block text-lg font-display text-coffee-700">Subscribe</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen pt-20 lg:pt-24 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8 py-12 lg:py-20">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[calc(100vh-12rem)]">
+
+                <!-- Image -->
+                <div class="relative order-2 lg:order-1 opacity-0 animate-fade-in-up">
+                    <div class="aspect-[4/5] lg:aspect-[3/4] relative overflow-hidden">
+                        <img src="https://picsum.photos/seed/coffeebeans45/800/1000.jpg" alt="Coffee beans still life"
+                            class="w-full h-full object-cover grain-img animate-slow-zoom">
+                        <!-- Warm overlay -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-coffee-900/30 via-transparent to-cream-100/20">
+                        </div>
+                    </div>
+
+                    <!-- Floating Label -->
+                    <div
+                        class="absolute -bottom-4 -right-4 lg:bottom-8 lg:-right-8 bg-cream-50 px-5 py-3 shadow-lg rotate-2">
+                        <p class="handwritten text-coffee-600 text-lg">Ethiopia Yirgacheffe</p>
+                        <p class="text-xs text-coffee-500 mt-1">Harvest 2024</p>
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="order-1 lg:order-2 flex flex-col justify-center opacity-0 animate-fade-in-up delay-200">
+                    <div class="mb-6">
+                        <span class="handwritten text-forest-700 text-lg">Est. 2019</span>
+                    </div>
+
+                    <h1
+                        class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-medium leading-[1.1] text-coffee-900 mb-8">
+                        Time shapes<br>
+                        <span class="italic text-coffee-600">flavor</span>
+                    </h1>
+
+                    <p class="text-lg lg:text-xl text-coffee-600 leading-relaxed max-w-md mb-10">
+                        We source single-origin beans from small farms, roast them by hand in small batches,
+                        and let time do its work. No rush. No compromise.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#origins"
+                            class="inline-flex items-center justify-center px-8 py-4 bg-coffee-800 text-cream-50 text-sm tracking-wide hover:bg-coffee-900 transition-colors duration-300">
+                            Explore Origins
+                        </a>
+                        <a href="#process"
+                            class="inline-flex items-center justify-center px-8 py-4 border border-coffee-800/30 text-coffee-800 text-sm tracking-wide hover:bg-coffee-800/5 transition-colors duration-300">
+                            Our Process
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div
+            class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-0 animate-fade-in-up delay-500">
+            <span class="text-xs text-coffee-500 tracking-widest uppercase mb-3">Scroll</span>
+            <div class="w-px h-12 bg-gradient-to-b from-coffee-500 to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- Philosophy Divider -->
+    <section class="py-16 lg:py-24">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <div class="divider-line mb-12"></div>
+            <blockquote class="font-display text-2xl lg:text-3xl italic text-coffee-700 leading-relaxed">
+                "Every bean carries the story of its soil, its climate, and the hands that nurtured it."
+            </blockquote>
+            <p class="mt-6 text-sm text-coffee-500 tracking-wide">— Our Philosophy</p>
+            <div class="divider-line mt-12"></div>
+        </div>
+    </section>
+
+    <!-- Origins Section -->
+    <section id="origins" class="py-16 lg:py-32 bg-cream-50">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+            <!-- Section Header -->
+            <div class="mb-16 lg:mb-24">
+                <span class="handwritten text-forest-700 text-lg">Where it begins</span>
+                <h2 class="font-display text-3xl lg:text-5xl font-medium text-coffee-900 mt-3">
+                    Origins
+                </h2>
+                <p class="mt-4 text-coffee-600 max-w-xl leading-relaxed">
+                    Each region imparts its unique character to the beans. We visit every farm,
+                    meet every farmer, and select only the lots that speak to us.
+                </p>
+            </div>
+
+            <!-- Origin Cards -->
+            <div class="space-y-20 lg:space-y-32">
+
+                <!-- Ethiopia -->
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                    <div class="relative">
+                        <div class="aspect-[4/3] overflow-hidden">
+                            <img src="https://picsum.photos/seed/ethiopia88/800/600.jpg" alt="Ethiopian coffee farm"
+                                class="w-full h-full object-cover grain-img hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div
+                            class="absolute -bottom-6 -right-6 w-24 h-24 bg-forest-700 flex items-center justify-center">
+                            <span
+                                class="text-cream-100 text-xs tracking-widest text-center leading-relaxed">1,900<br>meters</span>
+                        </div>
+                    </div>
+                    <div class="lg:pl-8">
+                        <span class="text-sm text-coffee-500 tracking-widest uppercase">Africa</span>
+                        <h3 class="font-display text-2xl lg:text-4xl font-medium text-coffee-900 mt-2 mb-4">
+                            Ethiopia
+                        </h3>
+                        <p class="text-coffee-600 leading-relaxed mb-6">
+                            The birthplace of coffee. Our Yirgacheffe comes from small plots in the Sidamo region,
+                            where heirloom varieties grow under the shade of native trees. Expect floral notes,
+                            bright citrus, and a silky body.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            <span class="px-3 py-1 bg-cream-200 text-coffee-700 text-xs tracking-wide">Floral</span>
+                            <span class="px-3 py-1 bg-cream-200 text-coffee-700 text-xs tracking-wide">Citrus</span>
+                            <span class="px-3 py-1 bg-cream-200 text-coffee-700 text-xs tracking-wide">Silky</span>
+                        </div>
+                        <a href="#"
+                            class="inline-flex items-center text-coffee-800 hover:text-forest-700 transition-colors group">
+                            <span class="text-sm tracking-wide">View lots</span>
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Colombia -->
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                    <div class="relative lg:order-2">
+                        <div class="aspect-[4/3] overflow-hidden">
+                            <img src="https://picsum.photos/seed/colombia77/800/600.jpg" alt="Colombian coffee farm"
+                                class="w-full h-full object-cover grain-img hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div
+                            class="absolute -bottom-6 -left-6 w-24 h-24 bg-forest-700 flex items-center justify-center">
+                            <span
+                                class="text-cream-100 text-xs tracking-widest text-center leading-relaxed">1,800<br>meters</span>
+                        </div>
+                    </div>
+                    <div class="lg:pr-8 lg:order-1">
+                        <span class="text-sm text-coffee-500 tracking-widest uppercase">South America</span>
+                        <h3 class="font-display text-2xl lg:text-4xl font-medium text-coffee-900 mt-2 mb-4">
+                            Colombia
+                        </h3>
+                        <p class="text-coffee-600 leading-relaxed mb-6">
+                            From the slopes of Huila, where the Andes create perfect microclimates.
+                            These Caturra and Castillo beans undergo extended fermentation, developing
+                            complexity and sweetness. Notes of stone fruit, caramel, and chocolate.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            <span class="px-3 py-1 bg-cream-200 text-coffee-700 text-xs tracking-wide">Stone
+                                Fruit</span>
+                            <span class="px-3 py-1 bg-cream-200 text-coffee-700 text-xs tracking-wide">Caramel</span>
+                            <span class="px-3 py-1 bg-cream-200 text-coffee-700 text-xs tracking-wide">Chocolate</span>
+                        </div>
+                        <a href="#"
+                            class="inline-flex items-center text-coffee-800 hover:text-forest-700 transition-colors group">
+                            <span class="text-sm tracking-wide">View lots</span>
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Guatemala -->
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                    <div class="relative">
+                        <div class="aspect-[4/3] overflow-hidden">
+                            <img src="https://picsum.photos/seed/guatemala55/800/600.jpg" alt="Guatemalan coffee farm"
+                                class="w-full h-full object-cover grain-img hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div
+                            class="absolute -bottom-6 -right-6 w-24 h-24 bg-forest-700 flex items-center justify-center">
+                            <span
+                                class="text-cream-100 text-xs tracking-widest text-center leading-relaxed">1,600<br>meters</span>
+                        </div>
+                    </div>
+                    <div class="lg:pl-8">
+                        <span class="text-sm text-coffee-500 tracking-widest uppercase">Central America</span>
+                        <h3 class="font-display text-2xl lg:text-4xl font-medium text-coffee-900 mt-2 mb-4">
+                            Guatemala
+                        </h3>
+                        <p class="text-coffee-600 leading-relaxed mb-6">
+                            Antigua's volcanic soil produces beans of remarkable depth. Our selection
+                            comes from a family farm that's been cultivating Bourbon and Typica for
+                            four generations. Cocoa, brown sugar, and a hint of smoke.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            <span class="px-3 py-1 bg-cream-200 text-coffee-700 text-xs tracking-wide">Cocoa</span>
+                            <span class="px-3 py-1 bg-cream-200 text-coffee-700 text-xs tracking-wide">Brown
+                                Sugar</span>
+                            <span class="px-3 py-1 bg-cream-200 text-coffee-700 text-xs tracking-wide">Smoky</span>
+                        </div>
+                        <a href="#"
+                            class="inline-flex items-center text-coffee-800 hover:text-forest-700 transition-colors group">
+                            <span class="text-sm tracking-wide">View lots</span>
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-16 lg:py-32 bg-coffee-800 text-cream-100">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+            <!-- Section Header -->
+            <div class="text-center mb-16 lg:mb-24">
+                <span class="handwritten text-cream-300 text-lg">From seed to cup</span>
+                <h2 class="font-display text-3xl lg:text-5xl font-medium text-cream-50 mt-3">
+                    The Process
+                </h2>
+                <p class="mt-4 text-cream-300 max-w-xl mx-auto leading-relaxed">
+                    We believe in transparency. Every step, from green bean to roasted coffee,
+                    happens here, by hand, with intention.
+                </p>
+            </div>
+
+            <!-- Process Steps -->
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div class="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px process-line opacity-30"></div>
+
+                <div class="space-y-16 lg:space-y-24">
+
+                    <!-- Step 1: Sourcing -->
+                    <div class="relative grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                        <div class="lg:text-right">
+                            <span class="handwritten text-forest-700 text-lg">01</span>
+                            <h3 class="font-display text-xl lg:text-2xl font-medium text-cream-50 mt-1 mb-3">
+                                Sourcing
+                            </h3>
+                            <p class="text-cream-300 leading-relaxed">
+                                We travel to origin, cup hundreds of samples, and build relationships
+                                with farmers who share our values. Each lot is selected for its
+                                unique character and traceability.
+                            </p>
+                        </div>
+                        <div class="aspect-[4/3] overflow-hidden order-first lg:order-last">
+                            <img src="https://picsum.photos/seed/sourcing22/800/600.jpg" alt="Coffee sourcing"
+                                class="w-full h-full object-cover grain-img">
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Green Storage -->
+                    <div class="relative grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                        <div class="aspect-[4/3] overflow-hidden">
+                            <img src="https://picsum.photos/seed/greenbean33/800/600.jpg" alt="Green coffee beans"
+                                class="w-full h-full object-cover grain-img">
+                        </div>
+                        <div>
+                            <span class="handwritten text-forest-700 text-lg">02</span>
+                            <h3 class="font-display text-xl lg:text-2xl font-medium text-cream-50 mt-1 mb-3">
+                                Green Storage
+                            </h3>
+                            <p class="text-cream-300 leading-relaxed">
+                                Beans rest in climate-controlled conditions, preserving their
+                                potential. We roast within six months of harvest to capture
+                                peak flavor.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Roasting -->
+                    <div class="relative grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                        <div class="lg:text-right">
+                            <span class="handwritten text-forest-700 text-lg">03</span>
+                            <h3 class="font-display text-xl lg:text-2xl font-medium text-cream-50 mt-1 mb-3">
+                                Roasting
+                            </h3>
+                            <p class="text-cream-300 leading-relaxed">
+                                Small batches, precise heat, careful attention. We develop profiles
+                                that highlight each origin's unique qualities—never over-roasting,
+                                never masking defects.
+                            </p>
+                        </div>
+                        <div class="aspect-[4/3] overflow-hidden order-first lg:order-last">
+                            <img src="https://picsum.photos/seed/roasting44/800/600.jpg" alt="Coffee roasting"
+                                class="w-full h-full object-cover grain-img">
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Resting -->
+                    <div class="relative grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                        <div class="aspect-[4/3] overflow-hidden">
+                            <img src="https://picsum.photos/seed/resting66/800/600.jpg" alt="Resting coffee"
+                                class="w-full h-full object-cover grain-img">
+                        </div>
+                        <div>
+                            <span class="handwritten text-forest-700 text-lg">04</span>
+                            <h3 class="font-display text-xl lg:text-2xl font-medium text-cream-50 mt-1 mb-3">
+                                Resting
+                            </h3>
+                            <p class="text-cream-300 leading-relaxed">
+                                Freshly roasted coffee needs time. We let our beans rest for
+                                at least 48 hours before packaging, allowing flavors to
+                                settle and develop.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Brewing -->
+                    <div class="relative grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                        <div class="lg:text-right">
+                            <span class="handwritten text-forest-700 text-lg">05</span>
+                            <h3 class="font-display text-xl lg:text-2xl font-medium text-cream-50 mt-1 mb-3">
+                                Brewing
+                            </h3>
+                            <p class="text-cream-300 leading-relaxed">
+                                The final step is yours. We provide detailed brewing guides
+                                for each coffee, helping you bring out its best. Pour over,
+                                French press, espresso—the choice is yours.
+                            </p>
+                        </div>
+                        <div class="aspect-[4/3] overflow-hidden order-first lg:order-last">
+                            <img src="https://picsum.photos/seed/brewing77/800/600.jpg" alt="Coffee brewing"
+                                class="w-full h-full object-cover grain-img">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roast Comparison -->
+    <section class="py-16 lg:py-32 bg-cream-50">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-12 lg:mb-16">
+                <span class="handwritten text-forest-700 text-lg">The transformation</span>
+                <h2 class="font-display text-3xl lg:text-4xl font-medium text-coffee-900 mt-3">
+                    Before & After
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-16">
+                <!-- Green Beans -->
+                <div class="text-center">
+                    <div class="aspect-square overflow-hidden bg-cream-200 mb-6">
+                        <img src="https://picsum.photos/seed/greenbeans99/600/600.jpg" alt="Green coffee beans"
+                            class="w-full h-full object-cover grain-img">
+                    </div>
+                    <h3 class="font-display text-xl text-coffee-800 mb-2">Green</h3>
+                    <p class="text-coffee-600 text-sm max-w-xs mx-auto">
+                        Raw, dense, grassy. The potential is here, waiting for heat and time.
+                    </p>
+                </div>
+
+                <!-- Roasted Beans -->
+                <div class="text-center">
+                    <div class="aspect-square overflow-hidden bg-cream-200 mb-6">
+                        <img src="https://picsum.photos/seed/roastedbeans88/600/600.jpg" alt="Roasted coffee beans"
+                            class="w-full h-full object-cover grain-img">
+                    </div>
+                    <h3 class="font-display text-xl text-coffee-800 mb-2">Roasted</h3>
+                    <p class="text-coffee-600 text-sm max-w-xs mx-auto">
+                        Transformed. Oils risen, sugars caramelized, aromatics unlocked.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journal Section -->
+    <section id="journal" class="py-16 lg:py-32 bg-cream-100">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+            <!-- Section Header -->
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-16">
+                <div>
+                    <span class="handwritten text-forest-700 text-lg">Notes from the roastery</span>
+                    <h2 class="font-display text-3xl lg:text-5xl font-medium text-coffee-900 mt-3">
+                        Journal
+                    </h2>
+                </div>
+                <a href="#"
+                    class="mt-4 lg:mt-0 inline-flex items-center text-coffee-800 hover:text-forest-700 transition-colors group">
+                    <span class="text-sm tracking-wide">View all posts</span>
+                    <i data-lucide="arrow-right"
+                        class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Journal Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Article 1 -->
+                <article class="group">
+                    <a href="#">
+                        <div class="aspect-[4/3] overflow-hidden mb-5">
+                            <img src="https://picsum.photos/seed/journal11/600/450.jpg" alt="Journal article"
+                                class="w-full h-full object-cover grain-img group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <span class="text-xs text-coffee-500 tracking-widest uppercase">Origin Visit</span>
+                        <h3
+                            class="font-display text-xl lg:text-2xl text-coffee-900 mt-2 mb-3 group-hover:text-forest-700 transition-colors">
+                            A Week in Sidamo
+                        </h3>
+                        <p class="text-coffee-600 text-sm leading-relaxed">
+                            Walking through the forests where coffee first grew wild, meeting farmers
+                            whose families have cultivated these hills for generations.
+                        </p>
+                    </a>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="group">
+                    <a href="#">
+                        <div class="aspect-[4/3] overflow-hidden mb-5">
+                            <img src="https://picsum.photos/seed/journal22/600/450.jpg" alt="Journal article"
+                                class="w-full h-full object-cover grain-img group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <span class="text-xs text-coffee-500 tracking-widest uppercase">Technique</span>
+                        <h3
+                            class="font-display text-xl lg:text-2xl text-coffee-900 mt-2 mb-3 group-hover:text-forest-700 transition-colors">
+                            The Art of Resting
+                        </h3>
+                        <p class="text-coffee-600 text-sm leading-relaxed">
+                            Why patience matters after roasting. Understanding degassing and
+                            how it affects your cup.
+                        </p>
+                    </a>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="group">
+                    <a href="#">
+                        <div class="aspect-[4/3] overflow-hidden mb-5">
+                            <img src="https://picsum.photos/seed/journal33/600/450.jpg" alt="Journal article"
+                                class="w-full h-full object-cover grain-img group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <span class="text-xs text-coffee-500 tracking-widest uppercase">Recipe</span>
+                        <h3
+                            class="font-display text-xl lg:text-2xl text-coffee-900 mt-2 mb-3 group-hover:text-forest-700 transition-colors">
+                            Winter Pour Over
+                        </h3>
+                        <p class="text-coffee-600 text-sm leading-relaxed">
+                            Our preferred method for darker roasts during colder months.
+                            Adjusting ratios for a warming cup.
+                        </p>
+                    </a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscribe Section -->
+    <section id="subscribe" class="py-16 lg:py-32 bg-cream-200">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+                <!-- Text -->
+                <div>
+                    <span class="handwritten text-forest-700 text-lg">Stay stocked</span>
+                    <h2 class="font-display text-3xl lg:text-4xl font-medium text-coffee-900 mt-3 mb-6">
+                        Coffee, delivered
+                    </h2>
+                    <p class="text-coffee-600 leading-relaxed mb-8">
+                        Choose your frequency. We'll send freshly roasted beans to your door.
+                        Pause or cancel anytime—no commitment, just coffee.
+                    </p>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-forest-700 mt-1 flex-shrink-0"></i>
+                            <span class="text-coffee-700 text-sm">Free shipping on subscriptions</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-forest-700 mt-1 flex-shrink-0"></i>
+                            <span class="text-coffee-700 text-sm">Exclusive access to limited lots</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-forest-700 mt-1 flex-shrink-0"></i>
+                            <span class="text-coffee-700 text-sm">Brewing guides with each shipment</span>
+                        </div>
+                    </div>
+
+                    <a href="#"
+                        class="inline-flex items-center justify-center px-8 py-4 bg-coffee-800 text-cream-50 text-sm tracking-wide hover:bg-coffee-900 transition-colors duration-300">
+                        Start Subscription
+                    </a>
+                </div>
+
+                <!-- Image -->
+                <div class="relative">
+                    <div class="aspect-[3/4] overflow-hidden">
+                        <img src="https://picsum.photos/seed/subscription55/600/800.jpg" alt="Coffee subscription"
+                            class="w-full h-full object-cover grain-img">
+                    </div>
+                    <!-- Price Tag -->
+                    <div class="absolute -bottom-4 -left-4 bg-cream-50 px-6 py-4 shadow-lg -rotate-2">
+                        <span class="block text-xs text-coffee-500 tracking-wide">From</span>
+                        <span class="font-display text-2xl text-coffee-800">$18</span>
+                        <span class="text-sm text-coffee-600">/bag</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Preview -->
+    <section class="py-16 lg:py-24 bg-cream-100">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12">
+                <div>
+                    <span class="handwritten text-forest-700 text-lg">Current offerings</span>
+                    <h2 class="font-display text-3xl lg:text-4xl font-medium text-coffee-900 mt-3">
+                        Shop
+                    </h2>
+                </div>
+                <a href="#"
+                    class="mt-4 lg:mt-0 text-sm text-coffee-600 hover:text-coffee-800 transition-colors tracking-wide">
+                    View all products →
+                </a>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+
+                <!-- Product 1 -->
+                <div class="group">
+                    <a href="#">
+                        <div class="aspect-[3/4] overflow-hidden bg-cream-200 mb-4">
+                            <img src="https://picsum.photos/seed/product11/400/533.jpg" alt="Ethiopia Yirgacheffe"
+                                class="w-full h-full object-cover grain-img group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h3 class="font-display text-lg text-coffee-900 group-hover:text-forest-700 transition-colors">
+                            Ethiopia Yirgacheffe
+                        </h3>
+                        <p class="text-sm text-coffee-500 mt-1">Light roast</p>
+                        <p class="text-coffee-800 mt-2">$22</p>
+                    </a>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="group">
+                    <a href="#">
+                        <div class="aspect-[3/4] overflow-hidden bg-cream-200 mb-4">
+                            <img src="https://picsum.photos/seed/product22/400/533.jpg" alt="Colombia Huila"
+                                class="w-full h-full object-cover grain-img group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h3 class="font-display text-lg text-coffee-900 group-hover:text-forest-700 transition-colors">
+                            Colombia Huila
+                        </h3>
+                        <p class="text-sm text-coffee-500 mt-1">Medium roast</p>
+                        <p class="text-coffee-800 mt-2">$20</p>
+                    </a>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="group">
+                    <a href="#">
+                        <div class="aspect-[3/4] overflow-hidden bg-cream-200 mb-4">
+                            <img src="https://picsum.photos/seed/product33/400/533.jpg" alt="Guatemala Antigua"
+                                class="w-full h-full object-cover grain-img group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h3 class="font-display text-lg text-coffee-900 group-hover:text-forest-700 transition-colors">
+                            Guatemala Antigua
+                        </h3>
+                        <p class="text-sm text-coffee-500 mt-1">Medium-dark roast</p>
+                        <p class="text-coffee-800 mt-2">$19</p>
+                    </a>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="group">
+                    <a href="#">
+                        <div class="aspect-[3/4] overflow-hidden bg-cream-200 mb-4">
+                            <img src="https://picsum.photos/seed/product44/400/533.jpg" alt="Seasonal Blend"
+                                class="w-full h-full object-cover grain-img group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h3 class="font-display text-lg text-coffee-900 group-hover:text-forest-700 transition-colors">
+                            Seasonal Blend
+                        </h3>
+                        <p class="text-sm text-coffee-500 mt-1">Espresso</p>
+                        <p class="text-coffee-800 mt-2">$18</p>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-coffee-900 text-cream-200 py-16 lg:py-24">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+
+                <!-- Brand -->
+                <div class="lg:col-span-1">
+                    <a href="#" class="font-display text-2xl text-cream-50">TERROIR</a>
+                    <p class="mt-4 text-cream-400 text-sm leading-relaxed">
+                        Handcrafted specialty coffee. Single origin, small batch,
+                        roasted with intention.
+                    </p>
+                </div>
+
+                <!-- Navigate -->
+                <div>
+                    <h4 class="text-xs text-cream-500 tracking-widest uppercase mb-4">Navigate</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#origins"
+                                class="text-cream-300 hover:text-cream-50 transition-colors text-sm">Origins</a></li>
+                        <li><a href="#process"
+                                class="text-cream-300 hover:text-cream-50 transition-colors text-sm">Process</a></li>
+                        <li><a href="#journal"
+                                class="text-cream-300 hover:text-cream-50 transition-colors text-sm">Journal</a></li>
+                        <li><a href="#subscribe"
+                                class="text-cream-300 hover:text-cream-50 transition-colors text-sm">Subscribe</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="text-xs text-cream-500 tracking-widest uppercase mb-4">Support</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#"
+                                class="text-cream-300 hover:text-cream-50 transition-colors text-sm">Shipping</a></li>
+                        <li><a href="#" class="text-cream-300 hover:text-cream-50 transition-colors text-sm">Returns</a>
+                        </li>
+                        <li><a href="#" class="text-cream-300 hover:text-cream-50 transition-colors text-sm">FAQ</a>
+                        </li>
+                        <li><a href="#" class="text-cream-300 hover:text-cream-50 transition-colors text-sm">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-xs text-cream-500 tracking-widest uppercase mb-4">Newsletter</h4>
+                    <p class="text-cream-400 text-sm mb-4">
+                        New releases, origin stories, and brewing tips.
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="Email"
+                            class="bg-coffee-800 border border-coffee-700 px-4 py-2 text-sm text-cream-200 placeholder-coffee-500 focus:outline-none focus:border-forest-700 flex-grow">
+                        <button type="submit"
+                            class="bg-forest-700 px-4 py-2 text-cream-50 text-sm hover:bg-forest-800 transition-colors">
+                            Join
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Bottom -->
+            <div
+                class="pt-8 border-t border-coffee-800 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <p class="text-coffee-500 text-xs">
+                    © 2024 Terroir Coffee. All rights reserved.
+                </p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="text-coffee-500 hover:text-cream-300 transition-colors">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#" class="text-coffee-500 hover:text-cream-300 transition-colors">
+                        <i data-lucide="twitter" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
